@@ -139,7 +139,7 @@
       "react/jsx-key": "warn",
       "react/jsx-max-props-per-line": ["warn", { "maximum": 4 }],
       "react/jsx-no-target-blank": "off",
-      "react/jsx-filename-extension": "warn",
+      "react/jsx-filename-extension": "off",
       "react/no-array-index-key": "off",
       "react/no-danger": "off",
       "react/no-did-mount-set-state": "warn",

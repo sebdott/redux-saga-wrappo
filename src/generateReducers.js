@@ -87,10 +87,10 @@ function generateReducerDefaultActionType(reducer) {
 }
 
 export function addReducerDefaultActionType(CurrentReducerActionTypes) {
-  const addDefaultReducerActions = {};
+  const defaultReducerActions = {};
 
   for (const [key, value] of Object.entries(CurrentReducerActionTypes)) {
-    addDefaultReducerActions[key] = generateReducerDefaultActionType(value);
+    defaultReducerActions[key] = generateReducerDefaultActionType(value);
   }
-  return addDefaultReducerActions;
+  return defaultReducerActions;
 }

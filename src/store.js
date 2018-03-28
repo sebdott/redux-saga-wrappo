@@ -4,24 +4,23 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { reducer as formModel } from 'redux-form';
-
+import innerReducer from './reducers';
 import history from './history';
-
 
 function getStoreInfo({ rootReducer }) {
   const sagaMiddleware = createSagaMiddleware();
 
-  rootReducer.formModel = formModel;
-
   const reducer = persistReducer(
     {
-      key: 'rdc', // key is required
-      storage, // storage is now required
+      key: 'rdc',
+      storage,
       whitelist: ['appModel'],
     },
     combineReducers({
       ...rootReducer,
       router: routerReducer,
+      ...innerReducer,
+      formModel,
     }),
   );
 
@@ -48,14 +47,12 @@ export const configStore = ({ rootReducer, rootSaga }) => {
 
   const store = createStoreWithMiddleware(reducer, initialState);
 
-  sagaMiddleware.run(rootSaga);
+  if (rootSaga) {
+    sagaMiddleware.run(rootSaga);
+  }
 
   return {
     persistor: persistStore(store),
     store,
   };
 };
-
-// const { store, persistor } = configStore({ rootReducer, rootSaga });
-
-// export { store, persistor };

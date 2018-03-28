@@ -2,10 +2,12 @@ import injectSheet from 'react-jss';
 import { compose, bindActionCreators } from 'redux';
 import { connect as connectRedux } from 'react-redux';
 import extend from 'lodash/extend';
-import { defaultReducerActions } from './generateReducers';
+import { addReducerDefaultActionType } from './generateReducers';
 
 function addOnMapDispatchToProps(dispatch, dispatchActionCreators = undefined) {
   const defaultDispatchActionCreator = { actions: {} };
+
+  const defaultReducerActions = addReducerDefaultActionType(global.ActionType);
 
   for (const [modelKey, modelValue] of Object.entries(defaultReducerActions)) {
     defaultDispatchActionCreator.actions[modelKey] = {};

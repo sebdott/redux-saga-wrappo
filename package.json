@@ -3,14 +3,17 @@
   "version": "1.1.18",
   "description": "",
   "main": "index.js",
-  "watch": {
-    "build": "{src,test}/*.js"
+  "watch": {    
+    "build": {
+      "patterns": ["src"],
+      "extensions": "js,jsx"
+    }
   },
   "scripts": {
-    "build": "babel src --out-dir lib && babel constants --out-dir lib/constants",
-    "watch": "npm-watch",
+    "start": "npm-watch",
+    "build": "babel src --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "babel src --out-dir lib && babel constants --out-dir lib/constants"
+    "prepare": "babel src --out-dir lib"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,7 @@
     "babel-eslint": "^8.1.2",
     "babel-loader": "^8.0.0-beta.2",
     "eslint-plugin-jsx-a11y": "^6.0.3",
+    "fingerprintjs2": "^1.6.1",
     "history": "^4.7.2",
     "lodash": "^4.17.5",
     "qs": "^6.5.1",
@@ -71,6 +75,7 @@
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-redux-saga": "^0.6.0",
     "npm-watch": "^0.3.0",
+    "redux-logger": "^3.0.6",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.13",
     "webpack-link": "^0.2.0"
