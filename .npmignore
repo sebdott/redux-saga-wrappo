@@ -1,0 +1,6 @@
+/src/
+/constants/
+.eslintrc
+yarn.lock
+yarn-error.log
+webpack.config.js
