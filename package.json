@@ -1,17 +1,20 @@
 {
   "name": "redux-saga-wrappo",
-  "version": "1.1.21",
+  "version": "1.1.32",
   "description": "",
   "main": "index.js",
-  "watch": {    
+  "watch": {
     "build": {
-      "patterns": ["src"],
+      "patterns": [
+        "src"
+      ],
       "extensions": "js,jsx"
     }
   },
   "scripts": {
     "start": "npm-watch",
     "build": "babel src --out-dir lib",
+    "build2": "NODE_ENV=production webpack --config webpack.config.js --hide-modules --display-optimization-bailout",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "babel src --out-dir lib"
   },
@@ -26,11 +29,10 @@
   },
   "homepage": "https://github.com/codedsphere/redux-saga-wrapo#readme",
   "dependencies": {
-    "babel-eslint": "^8.1.2",
-    "babel-loader": "^8.0.0-beta.2",
     "fingerprintjs2": "^1.6.1",
     "history": "^4.7.2",
     "lodash": "^4.17.5",
+    "npm-watch": "^0.3.0",
     "qs": "^6.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -39,6 +41,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^3.7.2",
     "redux-form": "^7.3.0",
+    "redux-logger": "^3.0.6",
     "redux-persist": "^5.9.1",
     "redux-saga": "^0.16.0"
   },
@@ -60,6 +63,11 @@
     "@babel/preset-react": "^7.0.0-beta.42",
     "@babel/preset-stage-1": "^7.0.0-beta.42",
     "@babel/runtime": "^7.0.0-beta.42",
+    "babel-eslint": "^8.1.2",
+    "babel-loader": "^8.0.0-beta.2",
+    "babel-plugin-import": "^1.6.7",
+    "babel-plugin-minify-simplify": "^0.3.0",
+    "babel-plugin-uglify": "^1.0.2",
     "eslint": "^4.18.2",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -73,8 +81,6 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-redux-saga": "^0.6.0",
-    "npm-watch": "^0.3.0",
-    "redux-logger": "^3.0.6",
     "webpack": "^4.2.0",
     "webpack-cli": "^2.0.13",
     "webpack-link": "^0.2.0"

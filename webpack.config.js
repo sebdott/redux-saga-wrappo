@@ -17,6 +17,7 @@ module.exports = {
         options: {
           cacheDirectory: true,
         },
+        exclude: /\/node_modules/
       },
     ],
   },

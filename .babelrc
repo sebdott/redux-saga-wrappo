@@ -31,13 +31,14 @@
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-async-to-generator",
     "@babel/plugin-transform-regenerator",
-    "@babel/plugin-transform-arrow-functions"
+    "@babel/plugin-transform-arrow-functions",
   ],
   "env": {
     "production": {
       "plugins": [
         "@babel/plugin-transform-react-inline-elements",
-        "@babel/plugin-transform-react-constant-elements"
+        "@babel/plugin-transform-react-constant-elements",
+        "uglify:after"
       ]
     },
     "development": {

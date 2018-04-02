@@ -1,5 +1,6 @@
 /src/
 /constants/
+/node_modules/
 .eslintrc
 yarn.lock
 yarn-error.log
