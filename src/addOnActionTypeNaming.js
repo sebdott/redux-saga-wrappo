@@ -36,7 +36,6 @@ export function addOnActionTypeNaming(
     else {
       global.ActionType = ActionTypes;
     }
-
     return global.ActionType;
   }
   return ActionTypes;

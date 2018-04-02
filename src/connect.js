@@ -6,9 +6,7 @@ import { addReducerDefaultActionType } from './generateReducers';
 
 function addOnMapDispatchToProps(dispatch, dispatchActionCreators = undefined) {
   const defaultDispatchActionCreator = { actions: {} };
-
   const defaultReducerActions = addReducerDefaultActionType(global.ActionType);
-
   for (const [modelKey, modelValue] of Object.entries(defaultReducerActions)) {
     defaultDispatchActionCreator.actions[modelKey] = {};
 
@@ -18,7 +16,6 @@ function addOnMapDispatchToProps(dispatch, dispatchActionCreators = undefined) {
       ] = bindActionCreators(actionvalue, dispatch);
     }
   }
-
   if (dispatchActionCreators) {
     const actions = extend(
       defaultDispatchActionCreator.actions,
@@ -26,7 +23,6 @@ function addOnMapDispatchToProps(dispatch, dispatchActionCreators = undefined) {
     );
     defaultDispatchActionCreator.actions = actions;
   }
-
   return defaultDispatchActionCreator;
 }
 
@@ -60,13 +56,15 @@ export function connect(config = null) {
 
     mapDispatchToPropsInner = dispatch =>
       addOnMapDispatchToProps(dispatch, mapDispatchActionToProps(dispatch));
-  } else {
+  }
+  else {
     mapDispatchToPropsInner = addOnMapDispatchToProps;
   }
 
   if (mapStateToProps) {
     reduxWrapper = connectRedux(mapStateToProps, mapDispatchToPropsInner);
-  } else {
+  }
+  else {
     reduxWrapper = connectRedux(null, mapDispatchToPropsInner);
   }
 
