@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-wrappo",
-  "version": "1.1.42",
+  "version": "1.1.43",
   "description": "",
   "main": "index.js",
   "watch": {
@@ -13,12 +13,12 @@
   },
   "scripts": {
     "start": "npm-watch",
-    "build": "yarn clear-files && yarn clear-folder && babel src --out-dir .",
+    "build": "babel src --out-dir .",
     "clear": "yarn clear-files && yarn clear-folder",
     "clear-files": "rimraf *.js",
     "clear-folder": "rimraf constants && rimraf page && rimraf reducers  && rimraf utils ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "yarn build &&  yarn publish --new-version 1.1.42 && yarn clear-files && yarn clear-folder"
+    "commit": "yarn build && yarn publish --new-version 1.1.43 && yarn clear-files && yarn clear-folder"
   },
   "repository": {
     "type": "git",
