@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-wrappo",
-  "version": "1.1.32",
+  "version": "1.1.38",
   "description": "",
   "main": "index.js",
   "watch": {
@@ -16,7 +16,7 @@
     "build": "babel src --out-dir lib",
     "build2": "NODE_ENV=production webpack --config webpack.config.js --hide-modules --display-optimization-bailout",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "babel src --out-dir lib"
+    "build3": "yarn build && copyfiles package.json lib && yarn publish lib --new-version 1.1.38"
   },
   "repository": {
     "type": "git",
@@ -68,6 +68,7 @@
     "babel-plugin-import": "^1.6.7",
     "babel-plugin-minify-simplify": "^0.3.0",
     "babel-plugin-uglify": "^1.0.2",
+    "cpx": "^1.5.0",
     "eslint": "^4.18.2",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
