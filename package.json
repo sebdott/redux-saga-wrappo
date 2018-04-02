@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-wrappo",
-  "version": "1.1.44",
+  "version": "1.1.45",
   "description": "",
   "main": "index.js",
   "watch": {
@@ -18,7 +18,7 @@
     "clear-files": "rimraf *.js",
     "clear-folder": "rimraf constants && rimraf page && rimraf reducers  && rimraf utils ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "yarn build && yarn publish --new-version 1.1.44"
+    "prepare": "yarn build"
   },
   "repository": {
     "type": "git",
