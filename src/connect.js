@@ -2,6 +2,7 @@ import injectSheet from 'react-jss';
 import { compose, bindActionCreators } from 'redux';
 import { connect as connectRedux } from 'react-redux';
 import extend from 'lodash/extend';
+import { reduxForm } from 'redux-form';
 import { addReducerDefaultActionType } from './generateReducers';
 
 function addOnMapDispatchToProps(dispatch, dispatchActionCreators = undefined) {
@@ -44,10 +45,10 @@ export function connect(config = null) {
     return connectRedux(null, addOnMapDispatchToProps);
   }
 
-  const { mapStateToProps, mapActionToProps, styles } = config;
-  let mapDispatchToPropsInner;
+  const { mapStateToProps, mapActionToProps, mapFormToProps, mapComponentToProps, styles , reduxFormConfig } = config;
+  let fullConfig = [];
   let reduxWrapper;
-  let stylesWrapper;
+  let mapDispatchToPropsInner;
 
   if (mapActionToProps) {
     const mapDispatchActionToProps = dispatch => ({
@@ -68,10 +69,17 @@ export function connect(config = null) {
     reduxWrapper = connectRedux(null, mapDispatchToPropsInner);
   }
 
+  fullConfig.push(reduxWrapper);
+
   if (styles) {
-    stylesWrapper = injectSheet(styles);
-    return compose(reduxWrapper, stylesWrapper);
+    const stylesWrapper = injectSheet(styles);
+    fullConfig.push(stylesWrapper);
   }
 
-  return compose(reduxWrapper);
+  if(mapFormToProps) 
+  {
+    const reduxFormWrapper = reduxForm(mapFormToProps) 
+    fullConfig.push(reduxFormWrapper);
+  }
+  return compose(...fullConfig);
 }

@@ -24,6 +24,5 @@ export const registerAllComponent = (TagMain, TagOverride) => Tags => {
     const CurrentTag = getCurrentTag(TagOverride, tag);
     components[tag] = CurrentTag || getCurrentTag(TagMain, tag);
   });
-
-  return components;
+   return {...components};
 };

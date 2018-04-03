@@ -37,8 +37,7 @@
     "production": {
       "plugins": [
         "@babel/plugin-transform-react-inline-elements",
-        "@babel/plugin-transform-react-constant-elements",
-        "uglify:after"
+        "@babel/plugin-transform-react-constant-elements"
       ]
     },
     "development": {

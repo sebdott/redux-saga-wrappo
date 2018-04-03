@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-wrappo",
-  "version": "1.1.45",
+  "version": "1.1.49",
   "description": "",
   "main": "index.js",
   "watch": {
@@ -34,6 +34,7 @@
     "fingerprintjs2": "^1.6.1",
     "history": "^4.7.2",
     "lodash": "^4.17.5",
+    "map-props": "^1.0.0",
     "npm-watch": "^0.3.0",
     "qs": "^6.5.1",
     "react": "^16.2.0",
@@ -67,8 +68,8 @@
     "@babel/runtime": "^7.0.0-beta.42",
     "babel-eslint": "^8.1.2",
     "babel-loader": "^8.0.0-beta.2",
+    "babel-minify": "^0.3.0",
     "babel-plugin-import": "^1.6.7",
-    "babel-plugin-minify-simplify": "^0.3.0",
     "babel-plugin-uglify": "^1.0.2",
     "cpx": "^1.5.0",
     "eslint": "^4.18.2",
