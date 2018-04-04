@@ -5,17 +5,32 @@ export const registerComponent = (components) => tag => {
   const TagComponent = components[tag];
 
   if (TagComponent) {
-    return TagComponent;
+    return { Tag: TagComponent, Type: 'Component' } ;
   }
   return null;
 };
 
 function getCurrentTag(getTag, tagName) {
-  const CurrentTag = getTag(tagName);
-  if (CurrentTag) { 
-    return props => <CurrentTag {...props} />;
-  }
-  return null;
+  const { Tag, Type } = getTag(tagName);
+
+  if(!Tag) return null;
+  return { Tag, Type };
+  // if(Type === 'Component')
+  // {
+  //   return props => <Tag {...props} />;
+  // }
+  // else
+  // {
+  //   return Tag;
+  // }
+
+  // if (CurrentTag) { 
+  //   return props => <CurrentTag {...props} />;
+  // }
+  // if (CurrentTag) { 
+  //   return CurrentTag;
+  // }
+  // return null;
 }
 
 export const registerAllComponent = (TagMain, TagOverride) => Tags => {
