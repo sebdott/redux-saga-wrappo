@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { reducer as formModel } from 'redux-form';
+import { reducer as form } from 'redux-form';
 import innerReducer from './reducers';
 import history from './history';
 
@@ -20,7 +20,7 @@ function getStoreInfo({ rootReducer }) {
       ...rootReducer,
       router: routerReducer,
       ...innerReducer,
-      formModel,
+      form,  
     }),
   );
 

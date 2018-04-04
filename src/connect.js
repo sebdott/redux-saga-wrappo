@@ -45,7 +45,7 @@ export function connect(config = null) {
     return connectRedux(null, addOnMapDispatchToProps);
   }
 
-  const { mapStateToProps, mapActionToProps, mapFormToProps, mapComponentToProps, styles , reduxFormConfig } = config;
+  const { mapStateToProps, mapActionToProps, mapFormToProps, mapComponentToProps, styles , reduxFormConfig, disabledDefaultAction } = config;
   let fullConfig = [];
   let reduxWrapper;
   let mapDispatchToPropsInner;
@@ -69,7 +69,10 @@ export function connect(config = null) {
     reduxWrapper = connectRedux(null, mapDispatchToPropsInner);
   }
 
-  fullConfig.push(reduxWrapper);
+  if(!disabledDefaultAction)
+  {
+    fullConfig.push(reduxWrapper);
+  }
 
   if (styles) {
     const stylesWrapper = injectSheet(styles);
