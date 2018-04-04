@@ -1,39 +1,27 @@
 import React from 'react';
 import map from 'lodash/map';
 
-export const registerComponent = (components) => tag => {
+const registerComponent = (components) => tag => {
   const TagComponent = components[tag];
-
   if (TagComponent) {
     return { Tag: TagComponent, Type: 'Component' } ;
   }
-  return null;
+  return { Tag: null, Type: '' };
 };
 
 function getCurrentTag(getTag, tagName) {
   const { Tag, Type } = getTag(tagName);
-
-  if(!Tag) return null;
-  return { Tag, Type };
-  // if(Type === 'Component')
-  // {
-  //   return props => <Tag {...props} />;
-  // }
-  // else
-  // {
-  //   return Tag;
-  // }
-
-  // if (CurrentTag) { 
-  //   return props => <CurrentTag {...props} />;
-  // }
-  // if (CurrentTag) { 
-  //   return CurrentTag;
-  // }
-  // return null;
+  if(Tag) {
+    return { Tag, Type };
+  }
+  
+  return null;
 }
 
-export const registerAllComponent = (TagMain, TagOverride) => Tags => {
+export const registerAllComponent = (TagMainOut, TagOverrideOut) => Tags => {
+  const TagMain = registerComponent(TagMainOut);
+  const TagOverride = registerComponent(TagOverrideOut);
+
   const components = {};
   map(Tags, tag => {
     if(TagOverride)
