@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store should have a store 1`] = `
+Object {
+  "dispatch": [Function],
+  "getState": [Function],
+  "replaceReducer": [Function],
+  "subscribe": [Function],
+  Symbol(observable): [Function],
+}
+`;
+
+exports[`store should have a store 2`] = `
+Object {
+  "dispatch": [Function],
+  "flush": [Function],
+  "getState": [Function],
+  "pause": [Function],
+  "persist": [Function],
+  "purge": [Function],
+  "replaceReducer": [Function],
+  "subscribe": [Function],
+  Symbol(observable): [Function],
+}
+`;
