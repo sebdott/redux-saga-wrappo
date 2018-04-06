@@ -1,10 +1,10 @@
 module.exports = {
   rootDir: '../',
   transform: {
-    "^.+\\.(js|jsx)$": "babel-jest",
+    '^.+\\.(js|jsx)$': 'babel-jest',
   },
   globals: {
-    "NODE_ENV": "test"
+    NODE_ENV: 'test',
   },
   moduleFileExtensions: [
     'js',

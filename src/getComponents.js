@@ -1,7 +1,8 @@
-import mapProps from "map-props";
-import isFunction from "lodash/isFunction";
+import mapProps from 'map-props';
+import isFunction from 'lodash/isFunction';
+
 export function getComponents(client, listOfComponent) {
-  let returnObj = {};
+  const returnObj = {};
   if (!isFunction(client)) {
     return null;
   }
@@ -9,9 +10,10 @@ export function getComponents(client, listOfComponent) {
   listOfComponent.forEach(componentName => {
     const { Tag, Type } = extractedComponentList[componentName];
 
-    if (Type === "Component") {
+    if (Type === 'Component') {
       returnObj[componentName] = () => Tag;
-    } else {
+    }
+    else {
       returnObj[componentName] = Tag;
     }
   });

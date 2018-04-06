@@ -1,3 +1,3 @@
 import * as assets from './assets';
 
-export default {assets}
+export default { assets };

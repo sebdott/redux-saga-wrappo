@@ -23,7 +23,10 @@
     "settings": {
       "import/resolver": {
         "webpack": {
-          "config": "config/webpack.config.base.js"
+          "config": "./config/webpack.config.base.js"
+        },
+        "jest": {
+          "jestConfigFile": "./config/jest.config.js"
         }
       }
     },
@@ -119,9 +122,10 @@
         }
       ],
       "no-bitwise": "warn",
+      "import/extensions": "off",
       "import/no-dynamic-require": "off",
       "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
-      "import/no-unresolved": "warn",
+      "import/no-unresolved": "off",
       "import/no-webpack-loader-syntax": "off",
       "import/no-named-as-default": "off",
       "import/prefer-default-export": "off",
@@ -140,6 +144,7 @@
       "react/jsx-max-props-per-line": ["warn", { "maximum": 4 }],
       "react/jsx-no-target-blank": "off",
       "react/jsx-filename-extension": "off",
+      "react/no-multi-comp": "off",
       "react/no-array-index-key": "off",
       "react/no-danger": "off",
       "react/no-did-mount-set-state": "warn",

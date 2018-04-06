@@ -1,5 +1,5 @@
-import exampleSaga from '../__mocks__/rootSaga/exampleSaga';
 import { generateSagas } from 'generateSagas';
+import exampleSaga from '../__mocks__/rootSaga/exampleSaga';
 
 describe('generateSagas', () => {
   it('should have sagas', () => {

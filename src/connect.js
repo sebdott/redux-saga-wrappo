@@ -45,8 +45,8 @@ export function connect(config = null) {
     return connectRedux(null, addOnMapDispatchToProps);
   }
 
-  const { mapStateToProps, mapActionToProps, mapFormToProps, mapComponentToProps, styles , reduxFormConfig, disabledDefaultAction } = config;
-  let fullConfig = [];
+  const { mapStateToProps, mapActionToProps, mapFormToProps, styles, disabledDefaultAction } = config;
+  const fullConfig = [];
   let reduxWrapper;
   let mapDispatchToPropsInner;
 
@@ -69,8 +69,7 @@ export function connect(config = null) {
     reduxWrapper = connectRedux(null, mapDispatchToPropsInner);
   }
 
-  if(!disabledDefaultAction)
-  {
+  if (!disabledDefaultAction) {
     fullConfig.push(reduxWrapper);
   }
 
@@ -79,9 +78,8 @@ export function connect(config = null) {
     fullConfig.push(stylesWrapper);
   }
 
-  if(mapFormToProps) 
-  {
-    const reduxFormWrapper = reduxForm(mapFormToProps) 
+  if (mapFormToProps) {
+    const reduxFormWrapper = reduxForm(mapFormToProps);
     fullConfig.push(reduxFormWrapper);
   }
   return compose(...fullConfig);
