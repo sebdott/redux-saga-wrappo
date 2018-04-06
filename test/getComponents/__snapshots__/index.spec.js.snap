@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getComponents should have place only main value 1`] = `
+<MapProps(Example)>
+  <Example
+    assets={
+      Object {
+        "main": [Function],
+      }
+    }
+  >
+    <TestPageMain>
+      <div>
+        Test Main
+      </div>
+    </TestPageMain>
+  </Example>
+</MapProps(Example)>
+`;
+
+exports[`getComponents should have place only override value 1`] = `
+<MapProps(Example)>
+  <Example
+    assets={
+      Object {
+        "main": [Function],
+      }
+    }
+  >
+    <TestPageMain>
+      <div>
+        Test Override
+      </div>
+    </TestPageMain>
+  </Example>
+</MapProps(Example)>
+`;

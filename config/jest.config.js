@@ -23,6 +23,7 @@ module.exports = {
     '^generateReducers': '<rootDir>/src/generateReducers',
     '^generateSagas': '<rootDir>/src/generateSagas',
     '^getComponents': '<rootDir>/src/getComponents',
+    '^validation': '<rootDir>/src/utils/validation',
     '^registerAllComponent': '<rootDir>/src/registerAllComponent',
     '^.+\\.(css|scss)$': '<rootDir>/test/__setup__/styleMock.js',
     '^(.+\\.(jpe?g|png|gif|ttf|eot|svg|md)|bootstrap.*)$': '<rootDir>/test/__setup__/fileMock.js',
@@ -36,17 +37,17 @@ module.exports = {
   testEnvironment: 'jest-environment-jsdom-global',
   testRegex: '/test/.*?\\.(test|spec)\\.js$',
   testURL: 'http://localhost:3000',
-  coverageThreshold: {
-    global: {
-      branches: 65,
-      functions: 65,
-      lines: 65,
-      statements: 65,
-    },
-  },
-  collectCoverage: true,
-  collectCoverageFrom: [
-    'src/**/*.{js,jsx}',
-  ],
+  // coverageThreshold: {
+  //   global: {
+  //     branches: 65,
+  //     functions: 65,
+  //     lines: 65,
+  //     statements: 65,
+  //   },
+  // },
+  // collectCoverage: true,
+  // collectCoverageFrom: [
+  //   'src/**/*.{js,jsx}',
+  // ],
   verbose: true,
 };

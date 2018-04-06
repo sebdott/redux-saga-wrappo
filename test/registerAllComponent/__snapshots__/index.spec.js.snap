@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`registerAllComponent should have place a correct override value 1`] = `
+Object {
+  "Tag": Object {
+    "main": [Function],
+  },
+  "Type": "Component",
+}
+`;
+
+exports[`registerAllComponent should have place a correct override value 2`] = `
+<div>
+  Test Override
+</div>
+`;
+
+exports[`registerAllComponent should have place only main value 1`] = `
+Object {
+  "Tag": Object {
+    "main": [Function],
+  },
+  "Type": "Component",
+}
+`;
+
+exports[`registerAllComponent should have place only main value 2`] = `
+<div>
+  Test Main
+</div>
+`;

@@ -1,20 +1,20 @@
-
-import mapValueToProps from './utils/mapValueToProps'; 
+import mapProps from "map-props";
+import isFunction from "lodash/isFunction";
 export function getComponents(client, listOfComponent) {
   let returnObj = {};
+  if (!isFunction(client)) {
+    return null;
+  }
   const extractedComponentList = client(listOfComponent);
   listOfComponent.forEach(componentName => {
-    const extractedComponent = extractedComponentList[componentName];
-    const { Tag, Type } = extractedComponent;
+    const { Tag, Type } = extractedComponentList[componentName];
 
-    if(Type === 'Component')
-    {
+    if (Type === "Component") {
       returnObj[componentName] = () => Tag;
-    }
-    else
-    {
+    } else {
       returnObj[componentName] = Tag;
     }
   });
-  return mapValueToProps(returnObj);
+
+  return mapProps(returnObj);
 }

@@ -19,8 +19,13 @@ function getCurrentTag(getTag, tagName) {
 }
 
 export const registerAllComponent = (TagMainOut, TagOverrideOut) => Tags => {
+  
   const TagMain = registerComponent(TagMainOut);
-  const TagOverride = registerComponent(TagOverrideOut);
+  let TagOverride;
+  if(TagOverrideOut)
+  {
+    TagOverride = registerComponent(TagOverrideOut);
+  }
 
   const components = {};
   map(Tags, tag => {
