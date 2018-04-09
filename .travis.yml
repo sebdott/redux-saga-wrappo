@@ -2,9 +2,11 @@ language: node_js
 node_js:
   - "8.9.1"
 script:
-  - yarn clear
   - npm version patch
+  - yarn clear
   - npm publish
+before_install:
+  - npm i -g makeshift && makeshift -s @bcoe -r registry.npmjs.org
 branches:
   only:
     - master
