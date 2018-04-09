@@ -1,2 +1,11 @@
-npm version patch
-npm publish
+language: node_js
+node_js:
+  - "4"
+  - "5"
+script:
+  - npm run clear
+  - npm version patch
+  - npm run publish
+branches:
+  only:
+    - master
