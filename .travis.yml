@@ -8,3 +8,9 @@ script:
 branches:
   only:
     - master
+deploy:
+  provider: npm
+  email: $USER_EMAIL
+  api_key: $NPM_TOKEN
+  on:
+    tags: true
