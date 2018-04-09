@@ -31,7 +31,8 @@
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-transform-async-to-generator",
     "@babel/plugin-transform-regenerator",
-    "@babel/plugin-transform-arrow-functions"
+    "@babel/plugin-transform-arrow-functions",
+    "lodash"
   ],
   "env": {
     "production": {
@@ -45,8 +46,7 @@
     "test": {
       "sourceMaps": "both",
       "plugins": ["@babel/plugin-transform-modules-commonjs",
-        "dynamic-import-node-babel-7",
-        "transform-es2015-modules-commonjs"
+        "dynamic-import-node-babel-7"
       ]
     }
   }

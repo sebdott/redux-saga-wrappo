@@ -37,6 +37,9 @@ module.exports = {
   testEnvironment: 'jest-environment-jsdom-global',
   testRegex: '/test/.*?\\.(test|spec)\\.js$',
   testURL: 'http://localhost:3000',
+  transformIgnorePatterns: [
+    'node_modules/(?!(react-native|my-project|redux-persist|lodash)/)',
+  ],
   // coverageThreshold: {
   //   global: {
   //     branches: 65,

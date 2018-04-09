@@ -4,7 +4,6 @@ import rootSaga from '../__mocks__/rootSaga';
 
 describe('addOnActionTypeNaming', () => {
   it('should have a addOnActionTypeNaming', () => {
-    
     const ReducerActionTypes = addOnActionTypeNaming(
       rootReducer,
       true,
