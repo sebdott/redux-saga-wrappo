@@ -1,7 +1,7 @@
 Redux-Saga-Wrappo
 =============
 
-[![build status](https://img.shields.io/travis/codedsphere/redux-saga-wrappo/master.svg?style=flat-square)](https://travis-ci.org/gaearon/redux-saga-wrappo) 
+[![build status](https://img.shields.io/travis/codedsphere/redux-saga-wrappo/master.svg?style=flat-square)](https://travis-ci.org/codedsphere/redux-saga-wrappo) 
 [![npm version](https://img.shields.io/npm/v/redux-saga-wrappo.svg?style=flat-square)](https://www.npmjs.com/package/redux-saga-wrappo)
 [![npm downloads](https://img.shields.io/npm/dm/redux-saga-wrappo.svg?style=flat-square)](https://www.npmjs.com/package/redux-saga-wrappo)
 
