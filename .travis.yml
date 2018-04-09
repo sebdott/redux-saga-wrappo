@@ -3,7 +3,7 @@ node_js:
   - "8.9.1"
 script:
   - git clean -fdX
-  - npm version patch
+  - npm version patch --force
   - yarn test
   - npm publish
 before_install:
