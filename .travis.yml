@@ -4,6 +4,9 @@ node_js:
 script:
   - yarn clear
   - git checkout -- . 
+  - git add *;
+  - git commit -m "New Version"
+  - git push
   - npm version patch
   - yarn test
   - npm publish
