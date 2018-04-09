@@ -2,8 +2,10 @@ language: node_js
 node_js:
   - "8.9.1"
 script:
+  - git add . && git commit
   - npm version patch
   - yarn clear
+  - yarn test
   - npm publish
 before_install:
   - npm i -g makeshift && makeshift -s @bcoe -r registry.npmjs.org

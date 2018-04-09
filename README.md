@@ -19,7 +19,9 @@ This is a wrapper around Redux Saga, which enables you to
 
 ## Use Me ?
 Probably yes, probably not :) 
-This is actually a private project, created for our own usage. However we would like to share it to the world.
+This is actually a private project, created for our own usage. 
+You can use it, but it will not have really proper documentation. 
+We will try our best to work on this repo to improve it in the future.
 
 ## Installation
 
