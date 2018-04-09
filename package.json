@@ -14,12 +14,12 @@
   "scripts": {
     "start": "npm-watch",
     "build": "babel src --out-dir .",
-    "clear": "npm run clear-files && npm run clear-folder",
+    "clear": "yarn clear-files && yarn clear-folder",
     "clear-files": "rimraf *.js",
     "clear-folder": "rimraf constants && rimraf page && rimraf reducers  && rimraf utils ",
     "test": "jest --config config/jest.config.js --bail",
     "test:watch": "jest --config config/jest.config.js --watch",
-    "prepare": "npm run build"
+    "prepare": "yarn build"
   },
   "jest": {
     "transform": {
