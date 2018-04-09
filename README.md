@@ -17,7 +17,7 @@ This is a wrapper around Redux Saga, which enables you to
 2. Retrieve your reducers states easily in your components
 3. Dynamic component fetching.
 
-# Use Me ?
+## Use Me ?
 Probably yes, probably not :) 
 This is actually a private project, created for our own usage. However we would like to share it to the world.
 
