@@ -4,6 +4,7 @@ node_js:
 script:
   - yarn clear
   - git clean -fdx
+  - git checkout -- . 
   - npm version patch
   - yarn test
   - npm publish
