@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "8.9.1"
 script:
-  - git add . && git commit
+  - git clean -f/-n/-i
   - npm version patch
   - yarn clear
   - yarn test
