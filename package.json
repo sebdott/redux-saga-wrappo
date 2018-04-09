@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-wrappo",
-  "version": "1.1.62",
+  "version": "1.1.63",
   "description": "",
   "main": "index.js",
   "watch": {
@@ -14,12 +14,12 @@
   "scripts": {
     "start": "npm-watch",
     "build": "babel src --out-dir .",
-    "clear": "yarn clear-files && yarn clear-folder",
+    "clear": "npm run clear-files && npm run clear-folder",
     "clear-files": "rimraf *.js",
     "clear-folder": "rimraf constants && rimraf page && rimraf reducers  && rimraf utils ",
     "test": "jest --config config/jest.config.js --bail",
     "test:watch": "jest --config config/jest.config.js --watch",
-    "prepare": "yarn build"
+    "prepare": "npm run build"
   },
   "jest": {
     "transform": {
