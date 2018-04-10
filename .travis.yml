@@ -6,7 +6,7 @@ script:
   - git checkout -- . 
   - npm --no-git-tag-version version patch
   - git add .
-  - git commit -m 'new version'
+  - git commit -m 'new version [ci skip]'
   - git push origin HEAD:master
   - yarn test
   - npm publish
@@ -18,9 +18,6 @@ before_install:
 branches:
   only:
     - master
-ignore:
-  - package.json
-  - .travis.yml
 deploy:
   provider: npm
   email: $USER_EMAIL
