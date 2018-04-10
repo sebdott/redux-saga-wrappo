@@ -5,7 +5,9 @@ script:
   - yarn clear
   - git checkout -- . 
   - npm version patch
-  - git push --tags
+  - git add *;
+  - git commit -m "Commit message"
+  - git push
   - yarn test
   - npm publish
 before_install:
