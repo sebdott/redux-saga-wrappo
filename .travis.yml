@@ -4,9 +4,10 @@ node_js:
 script:
   - yarn clear
   - git checkout -- . 
-  - npm version patch --force -m "Adding new version"
+  - npm --no-git-tag-version version patch
+  - git add .
+  - git commit -m 'new version'
   - git push
-  - git push --tags
   - yarn test
   - npm publish
 before_install:
