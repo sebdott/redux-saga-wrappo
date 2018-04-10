@@ -54,5 +54,37 @@ appCreator(
 
 In Progress.
 
+```js
+class Example extends PureComponent {
+  componentWillMount = () => {
+    const { actions } = this.props;
+    actions.exampleModel.updateState({ somethingNew: 'new day' });
+    actions.exampleModel.removeState(['somethingNew']);
+    actions.userModel.updateState({ name: 'codedsphere' });
+    actions.userModel.initializeAll();
+    actions.authenticationSaga.Login(1);
+    actions.authenticationSaga.getValidatePic();
+    actions.exampleReducer.Other_Reducer();
+  };
+  render() {
+    const { exampleModel } = this.props;
+    const { webUniqueCodea, webUniqueCodeb } = exampleModel;
+    const { Default } = this.props.layouts;
+    return (
+      <Default>{JSON.stringify({ webUniqueCodea, webUniqueCodeb })}</Default>
+    );
+  }
+}
+
+const connectConfig = {
+  mapActionToProps: { authenticationSaga, exampleReducer },
+  mapStateToProps: ({ userModel, exampleModel }) => ({
+    userModel,
+    exampleModel,
+  }),
+};
+
+export default getClientItem(['layouts'])(connect(connectConfig)(Example));
+```
 
 l
