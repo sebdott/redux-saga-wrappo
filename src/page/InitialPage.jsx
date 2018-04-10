@@ -4,9 +4,9 @@ import { getDeviceToken } from '../utils/validation';
 
 class InitialPage extends Component {
   componentWillMount() {
-    const { actions } = this.props;
+    const { appModel } = this.props;
     getDeviceToken(deviceToken => {
-      actions.appModel.updateState({ deviceToken });
+      appModel.updateState({ deviceToken });
     });
   }
 
