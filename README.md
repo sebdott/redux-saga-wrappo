@@ -93,5 +93,5 @@ const connectConfig = {
 
 export default getClientItem(["layouts"])(connect(connectConfig)(Example));
 ```
-
-l
+You can refer more on this boilerplate that I have prepared:
+(https://github.com/codedsphere/redux-saga-wrappo-boilerplate)
