@@ -14,7 +14,7 @@ function getStoreInfo({ rootReducer, persistReducerList }) {
 
   if (persistReducerList) {
     reducerPersistWhiteList.push(...persistReducerList);
-
+  }
   const reducer = persistReducer(
     {
       key: 'rdc',
