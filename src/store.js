@@ -7,20 +7,25 @@ import { reducer as form } from 'redux-form';
 import innerReducer from './reducers';
 import history from './history';
 
-function getStoreInfo({ rootReducer }) {
+function getStoreInfo({ rootReducer, persistReducerList }) {
   const sagaMiddleware = createSagaMiddleware();
+
+  const reducerPersistWhiteList = ['appModel'];
+
+  if (persistReducerList) {
+    reducerPersistWhiteList.push(...persistReducerList);
 
   const reducer = persistReducer(
     {
       key: 'rdc',
       storage,
-      whitelist: ['appModel'],
+      whitelist: ['appModel', ...persistReducerList],
     },
     combineReducers({
       ...rootReducer,
       router: routerReducer,
       ...innerReducer,
-      form,  
+      form,
     }),
   );
 
@@ -37,10 +42,10 @@ function getStoreInfo({ rootReducer }) {
   return { sagaMiddleware, reducer, middleware, composeEnhancers };
 }
 
-export const configStore = ({ rootReducer, rootSaga }) => {
+export const configStore = ({ rootReducer, rootSaga, persistReducerList }) => {
   const initialState = {};
 
-  const { sagaMiddleware, reducer, middleware, composeEnhancers } = getStoreInfo({ rootReducer, rootSaga });
+  const { sagaMiddleware, reducer, middleware, composeEnhancers } = getStoreInfo({ rootReducer, rootSaga, persistReducerList });
   const createStoreWithMiddleware = composeEnhancers(
     applyMiddleware(...middleware),
   )(createStore);

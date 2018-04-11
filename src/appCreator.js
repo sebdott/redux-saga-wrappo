@@ -5,8 +5,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { configStore } from './store';
 import InitialPage from './page/InitialPage';
 
-export function appCreator(component, root, { rootReducer, rootSaga }) {
-  const { store, persistor } = configStore({ rootReducer, rootSaga });  
+export function appCreator(component, root, { rootReducer, rootSaga, persistReducerList }) {
+  const { store, persistor } = configStore({ rootReducer, rootSaga, persistReducerList });
   const Start = () => (component);
 
   const App = () => (
