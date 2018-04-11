@@ -19,12 +19,12 @@ function getStoreInfo({ rootReducer, persistReducerList }) {
     {
       key: 'rdc',
       storage,
-      whitelist: ['appModel', ...persistReducerList],
+      whitelist: reducerPersistWhiteList,
     },
     combineReducers({
       ...rootReducer,
-      router: routerReducer,
       ...innerReducer,
+      router: routerReducer,
       form,
     }),
   );
