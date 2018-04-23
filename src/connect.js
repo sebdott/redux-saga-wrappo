@@ -8,7 +8,7 @@ import { addReducerDefaultActionType } from './generateReducers';
 
 function addOnMapDispatchToProps(dispatch, dispatchActionCreators = undefined) {
   let defaultDispatchActionCreator = {};
-  const defaultReducerActions = addReducerDefaultActionType(global.ActionType);
+  const defaultReducerActions = addReducerDefaultActionType();
   for (const [modelKey, modelValue] of Object.entries(defaultReducerActions)) {
     defaultDispatchActionCreator[modelKey] = {};
 

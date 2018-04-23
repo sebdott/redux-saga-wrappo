@@ -25,7 +25,7 @@ export function addOnActionTypeNaming(
       if (innerActionTypesKey !== 'namespace') {
         ActionTypes[actionTypesKey][
           innerActionTypesKey
-        ] = `${actionTypesKey}_${innerActionTypesValue}`;
+        ] = `${actionTypesKey}/${innerActionTypesValue}`;
       }
     }
   }
