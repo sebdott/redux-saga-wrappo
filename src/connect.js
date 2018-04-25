@@ -66,7 +66,10 @@ export function connect(config = null) {
   };
 
   if (mapStateToProps) {
-    const areStatesEqual = (next, prev) => !(next.form === prev.form);
+    const areStatesEqual = (next, prev) => {
+      return !(next.form === prev.form);
+    };
+
     const connectOptions = { areStatesEqual };
     reduxWrapper = connectRedux(mapStateToProps, mapDispatchToPropsInner, mergeProps, connectOptions);
   }
