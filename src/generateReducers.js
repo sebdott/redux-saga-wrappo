@@ -87,10 +87,10 @@ function generateReducerDefaultActionType(reducer) {
 }
 
 export function addReducerDefaultActionType(CurrentReducerActionTypes) {
- 
   let defaultReducerActions = {};
 
   for (const [key, value] of Object.entries(global.ActionType)) {
+    // const keyEdit = key.replace('Model', 'Reducer');
     defaultReducerActions[key] = generateReducerDefaultActionType(value);
   }
 

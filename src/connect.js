@@ -1,4 +1,3 @@
-import injectSheet from 'react-jss';
 import { compose, bindActionCreators } from 'redux';
 import { connect as connectRedux } from 'react-redux';
 import extend from 'lodash/extend';
@@ -44,7 +43,7 @@ export function connect(config = null) {
     return connectRedux(null, addOnMapDispatchToProps);
   }
 
-  const { mapStateToProps, mapActionToProps, mapFormToProps, styles, disabledDefaultAction } = config;
+  const { mapStateToProps, mapActionToProps, mapFormToProps, disabledDefaultAction } = config;
   const fullConfig = [];
   let reduxWrapper;
   let mapDispatchToPropsInner;
@@ -67,7 +66,9 @@ export function connect(config = null) {
   };
 
   if (mapStateToProps) {
-    reduxWrapper = connectRedux(mapStateToProps, mapDispatchToPropsInner, mergeProps);
+    const areStatesEqual = (next, prev) => !(next.form === prev.form);
+    const connectOptions = { areStatesEqual };
+    reduxWrapper = connectRedux(mapStateToProps, mapDispatchToPropsInner, mergeProps, connectOptions);
   }
   else {
     reduxWrapper = connectRedux(null, mapDispatchToPropsInner);
@@ -75,11 +76,6 @@ export function connect(config = null) {
 
   if (!disabledDefaultAction) {
     fullConfig.push(reduxWrapper);
-  }
-
-  if (styles) {
-    const stylesWrapper = injectSheet(styles);
-    fullConfig.push(stylesWrapper);
   }
 
   if (mapFormToProps) {
