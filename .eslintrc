@@ -22,9 +22,6 @@
     ],
     "settings": {
       "import/resolver": {
-        "webpack": {
-          "config": "./config/webpack.config.base.js"
-        },
         "jest": {
           "jestConfigFile": "./config/jest.config.js"
         }
@@ -126,7 +123,6 @@
       "import/no-dynamic-require": "off",
       "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
       "import/no-unresolved": "off",
-      "import/no-webpack-loader-syntax": "off",
       "import/no-named-as-default": "off",
       "import/prefer-default-export": "off",
       "jsx-a11y/anchor-has-content": "off",
@@ -194,4 +190,3 @@
       "eslint-disable": "eol-last"
     }
   }
-  

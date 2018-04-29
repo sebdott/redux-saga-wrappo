@@ -34,7 +34,6 @@ Then, to enable Redux-Saga-Wrappo,
 
 ```js
 //Index.js
-import "@babel/polyfill";
 import React from "react";
 import { ConnectedRouter } from "react-router-redux";
 import { Route } from "react-router-dom";
