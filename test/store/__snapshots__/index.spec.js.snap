@@ -6,7 +6,7 @@ Object {
   "getState": [Function],
   "replaceReducer": [Function],
   "subscribe": [Function],
-  Symbol(observable): [Function],
+  Symbol(Symbol.observable): [Function],
 }
 `;
 
@@ -20,6 +20,6 @@ Object {
   "purge": [Function],
   "replaceReducer": [Function],
   "subscribe": [Function],
-  Symbol(observable): [Function],
+  Symbol(Symbol.observable): [Function],
 }
 `;
