@@ -1,4 +1,4 @@
-import { generateSagas } from 'generateSagas';
+import generateSagas from 'generateSagas';
 import exampleSaga from './exampleSaga';
 
 export default generateSagas([exampleSaga]);

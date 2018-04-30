@@ -1,7 +1,7 @@
 import { compose, bindActionCreators } from 'redux';
 import { connect as connectRedux } from 'react-redux';
-import extend from 'lodash/extend';
-import merge from 'lodash/merge';
+import extend from 'lodash-es/extend';
+import merge from 'lodash-es/merge';
 import { reduxForm } from 'redux-form';
 import { addReducerDefaultActionType } from './generateReducers';
 
@@ -38,7 +38,7 @@ function addOnActionMapDispatchToProps(listOfActions, dispatch) {
   return dispatchActionCreators;
 }
 
-export function connect(config = null) {
+export default function connect(config = null) {
   if (!config) {
     return connectRedux(null, addOnMapDispatchToProps);
   }

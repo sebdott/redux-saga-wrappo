@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { registerAllComponent } from 'registerAllComponent';
+import registerAllComponent from 'registerAllComponent';
 import main from '../__mocks__/client/main';
 import override from '../__mocks__/client/override';
 
@@ -40,4 +40,3 @@ describe('registerAllComponent', () => {
     expect(shallow(<Main />).contains(<div>Test Override</div>)).toBe(true);
   });
 });
-

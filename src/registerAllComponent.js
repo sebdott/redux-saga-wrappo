@@ -1,6 +1,6 @@
-import map from 'lodash/map';
+import map from 'lodash-es/map';
 
-const registerComponent = (components) => tag => {
+const registerComponent = components => tag => {
   const TagComponent = components[tag];
   if (TagComponent) {
     return { Tag: TagComponent, Type: 'Component' };
@@ -17,7 +17,7 @@ function getCurrentTag(getTag, tagName) {
   return null;
 }
 
-export const registerAllComponent = (TagMainOut, TagOverrideOut) => Tags => {
+export default (TagMainOut, TagOverrideOut) => Tags => {
   const TagMain = registerComponent(TagMainOut);
   let TagOverride;
   if (TagOverrideOut) {

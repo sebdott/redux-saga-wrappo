@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
-import { getComponents } from 'getComponents';
-import { registerAllComponent } from 'registerAllComponent';
+import getComponents from 'getComponents';
+import registerAllComponent from 'registerAllComponent';
 import main from '../__mocks__/client/main';
 import override from '../__mocks__/client/override';
 

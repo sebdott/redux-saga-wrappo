@@ -2,10 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { configStore } from './store';
+import configStore from './store';
 import InitialPage from './page/InitialPage';
 
-export function appCreator(component, root, { rootReducer, rootSaga, persistReducerList }) {
+export default function appCreator(component, root, { rootReducer, rootSaga, persistReducerList }) {
   const { store, persistor } = configStore({ rootReducer, rootSaga, persistReducerList });
   const Start = () => (component);
 
@@ -18,4 +18,3 @@ export function appCreator(component, root, { rootReducer, rootSaga, persistRedu
   );
   render(<App />, root);
 }
-

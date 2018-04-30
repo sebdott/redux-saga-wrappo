@@ -1,7 +1,7 @@
 import mapProps from 'map-props';
-import isFunction from 'lodash/isFunction';
+import isFunction from 'lodash-es/isFunction';
 
-export function getComponents(client, listOfComponent) {
+export default function getComponents(client, listOfComponent) {
   const returnObj = {};
   if (!isFunction(client)) {
     return null;

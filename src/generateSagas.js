@@ -1,5 +1,5 @@
 import { all, takeLatest, fork } from 'redux-saga/effects';
-import map from 'lodash/map';
+import map from 'lodash-es/map';
 
 function* generateSagaInd({ sagas }) {
   return yield fork(function* root() {
@@ -13,7 +13,7 @@ function* generateSagaInd({ sagas }) {
   });
 }
 
-export function generateSagas(sagasList) {
+export default function generateSagas(sagasList) {
   const fullSagaList = [];
 
   map(sagasList, saga => {

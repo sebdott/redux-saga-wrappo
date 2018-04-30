@@ -1,4 +1,4 @@
-import { generateReducers } from 'generateReducers';
+import generateReducers from 'generateReducers';
 import exampleModel from '../__mocks__/rootReducer/exampleModel';
 
 describe('generateReducers', () => {
@@ -7,4 +7,3 @@ describe('generateReducers', () => {
     expect(reducers).toMatchSnapshot();
   });
 });
-

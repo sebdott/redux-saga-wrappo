@@ -1,13 +1,13 @@
-import { applyMiddleware, createStore, compose, combineReducers } from 'redux';
+import {applyMiddleware, createStore, compose, combineReducers} from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { routerReducer, routerMiddleware } from 'react-router-redux';
-import { persistStore, persistReducer } from 'redux-persist';
+import {routerReducer, routerMiddleware} from 'react-router-redux';
+import {persistStore, persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { reducer as form } from 'redux-form';
+import {reducer as form} from 'redux-form';
 import innerReducer from './reducers';
 import history from './history';
 
-function getStoreInfo({ rootReducer, persistReducerList }) {
+function getStoreInfo({rootReducer, persistReducerList}) {
   const sagaMiddleware = createSagaMiddleware();
 
   const reducerPersistWhiteList = ['appModel'];
@@ -30,22 +30,21 @@ function getStoreInfo({ rootReducer, persistReducerList }) {
   );
 
   const middleware = [sagaMiddleware, routerMiddleware(history)];
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-  if (process.env.NODE_ENV === 'development') {
-    const { createLogger } = require('redux-logger');
-
-    middleware.push(createLogger({ collapsed: true }));
-  }
-
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-  return { sagaMiddleware, reducer, middleware, composeEnhancers };
+  return {sagaMiddleware, reducer, middleware, composeEnhancers};
 }
 
-export const configStore = ({ rootReducer, rootSaga, persistReducerList }) => {
+export default ({rootReducer, rootSaga, persistReducerList}) => {
   const initialState = {};
 
-  const { sagaMiddleware, reducer, middleware, composeEnhancers } = getStoreInfo({ rootReducer, rootSaga, persistReducerList });
+  const {
+    sagaMiddleware,
+    reducer,
+    middleware,
+    composeEnhancers,
+  } = getStoreInfo({rootReducer, rootSaga, persistReducerList});
   const createStoreWithMiddleware = composeEnhancers(
     applyMiddleware(...middleware),
   )(createStore);

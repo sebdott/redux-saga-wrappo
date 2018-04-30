@@ -1,7 +1,6 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": ["@babel/preset-react"],
   "plugins": [
-    "@babel/plugin-transform-runtime",
     "@babel/plugin-syntax-dynamic-import",
     "syntax-trailing-function-commas",
     "@babel/plugin-proposal-object-rest-spread",
@@ -10,14 +9,28 @@
   "env": {
     "production": {
       "plugins": [
+        ["@babel/plugin-transform-runtime", {"useESModules": true}],
         "@babel/plugin-transform-react-inline-elements",
         "@babel/plugin-transform-react-constant-elements"
-      ]
+      ],
+      "presets": [["@babel/preset-env", {"modules": false}]]
     },
-    "development": {},
     "test": {
       "sourceMaps": "both",
-      "plugins": ["dynamic-import-node-babel-7"]
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        [
+          "module-resolver",
+          {
+            "root": ["./src"],
+            "alias": {
+              "lodash-es": "lodash"
+            }
+          }
+        ],
+        "dynamic-import-node-babel-7"
+      ],
+      "presets": ["@babel/preset-env"]
     }
   }
 }

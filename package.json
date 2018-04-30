@@ -2,7 +2,7 @@
   "name": "redux-saga-wrappo",
   "version": "1.1.90",
   "description": "",
-  "main": "index.js",
+  "main": "dist/redux-saga-wrappo.min.js",
   "browserslist": [
     "> 1%",
     "last 3 Chrome versions",
@@ -21,12 +21,20 @@
   },
   "scripts": {
     "start": "npm-watch",
-    "build": "babel src --out-dir .",
-    "clear": "yarn clear-files && yarn clear-folder",
-    "clear-files": "rimraf *.js",
-    "clear-folder": "rimraf constants && rimraf page && rimraf reducers  && rimraf utils ",
+    "build": "yarn run clean && cross-env BABEL_ENV=production webpack --config config/webpack.config.js --progress --profile",
+    "clean": "rimraf dist",
+    "precommit": "lint-staged",
+    "prepublishOnly": "yarn build",
     "test": "jest --config config/jest.config.js --bail",
     "test:watch": "jest --config config/jest.config.js --watch"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "yarn test",
+      "eslint -f pretty --fix",
+      "prettier --write",
+      "git add"
+    ]
   },
   "jest": {
     "transform": {
@@ -47,7 +55,7 @@
     "@babel/runtime": "^7.0.0-beta.42",
     "fingerprintjs2": "^1.8.0",
     "history": "^4.7.2",
-    "lodash": "^4.17.5",
+    "lodash-es": "^4.17.10",
     "map-props": "^1.0.0",
     "qs": "^6.5.1",
     "react": "^16.2.0",
@@ -56,7 +64,6 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
     "redux-form": "^7.3.0",
-    "redux-logger": "^3.0.6",
     "redux-persist": "^5.9.1",
     "redux-saga": "^0.16.0"
   },
@@ -64,11 +71,9 @@
     "babel-core": "^7.0.0-bridge.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "^7.0.0-beta.44",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.42",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.42",
-    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.44",
     "@babel/plugin-transform-react-constant-elements": "^7.0.0-beta.42",
     "@babel/plugin-transform-react-inline-elements": "^7.0.0-beta.42",
     "@babel/plugin-transform-runtime": "^7.0.0-beta.42",
@@ -79,32 +84,37 @@
     "babel-jest": "^22.4.3",
     "babel-loader": "^8.0.0-beta.2",
     "babel-plugin-dynamic-import-node-babel-7": "^2.0.7",
-    "babel-plugin-import": "^1.6.7",
+    "babel-plugin-import": "^1.7.0",
+    "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
-    "babel-plugin-uglify": "^1.0.2",
-    "cpx": "^1.5.0",
+    "circular-dependency-plugin": "^5.0.2",
+    "cross-env": "^5.1.4",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
-    "eslint-config-react-app": "^2.1.0",
     "eslint-formatter-pretty": "^1.3.0",
-    "eslint-import-resolver-jest": "^2.1.1",
-    "eslint-plugin-babel": "^4.1.2",
-    "eslint-plugin-chai-friendly": "^0.4.1",
-    "eslint-plugin-flowtype": "^2.46.1",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-redux-saga": "^0.6.0",
+    "eslint-plugin-redux-saga": "^0.8.0",
     "jest": "^22.4.3",
     "jest-environment-jsdom-global": "^1.0.3",
     "jest-enzyme": "^6.0.0",
+    "lint-staged": "^7.0.5",
+    "lodash": "^4.17.10",
     "npm-watch": "^0.3.0",
     "redux-mock-store": "^1.5.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "webpack": "^4.6.0",
+    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack-cli": "~2.0.15"
+  },
+  "peerDependencies": {
+    "react": "^15.x || ^16.x",
+    "react-dom": "^15.x || ^16.x"
   }
 }

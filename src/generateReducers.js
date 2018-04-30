@@ -1,4 +1,4 @@
-import { omit, pick, map, extend, merge } from 'lodash';
+import { omit, pick, map, extend, merge } from 'lodash-es';
 
 function createReducer(initialState, handlers) {
   return function reducer(state = initialState, action) {
@@ -95,8 +95,13 @@ export function addReducerDefaultActionType(CurrentReducerActionTypes) {
   }
 
   if (CurrentReducerActionTypes) {
-    defaultReducerActions = merge(CurrentReducerActionTypes, defaultReducerActions);
+    defaultReducerActions = merge(
+      CurrentReducerActionTypes,
+      defaultReducerActions
+    );
   }
 
   return { ...defaultReducerActions };
 }
+
+export default generateReducers;

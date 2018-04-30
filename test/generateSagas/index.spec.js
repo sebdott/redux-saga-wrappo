@@ -1,4 +1,4 @@
-import { generateSagas } from 'generateSagas';
+import generateSagas from 'generateSagas';
 import exampleSaga from '../__mocks__/rootSaga/exampleSaga';
 
 describe('generateSagas', () => {
@@ -7,4 +7,3 @@ describe('generateSagas', () => {
     expect(sagas).toMatchSnapshot();
   });
 });
-

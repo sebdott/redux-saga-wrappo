@@ -1,4 +1,4 @@
-import { generateReducers } from 'generateReducers';
+import generateReducers from 'generateReducers';
 
 import exampleModel from './exampleModel';
 

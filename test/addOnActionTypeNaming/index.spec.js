@@ -1,4 +1,4 @@
-import { addOnActionTypeNaming } from 'addOnActionTypeNaming';
+import addOnActionTypeNaming from 'addOnActionTypeNaming';
 import rootReducer from '../__mocks__/rootReducer';
 import rootSaga from '../__mocks__/rootSaga';
 
@@ -17,4 +17,3 @@ describe('addOnActionTypeNaming', () => {
     expect(SagaActionTypes).toMatchSnapshot();
   });
 });
-

@@ -2,7 +2,7 @@
  * @namespace constants
  * @desc App constants
  */
-import { addOnActionTypeNaming } from '../../../src/addOnActionTypeNaming';
+import addOnActionTypeNaming from '../../../src/addOnActionTypeNaming';
 import { ReducerActionTypesInner } from './Reducer';
 import { SagaActionTypesInner } from './Saga';
 

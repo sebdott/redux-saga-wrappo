@@ -1,6 +1,6 @@
 import { ReducerDefaultActionTypes } from './constants/reducer';
 
-export function addOnActionTypeNaming(
+export default function addOnActionTypeNaming(
   ActionTypes,
   isReducer = false
 ) {

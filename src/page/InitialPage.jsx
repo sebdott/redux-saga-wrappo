@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from '../connect';
+import connect from '../connect';
 import { getDeviceToken } from '../utils/validation';
 
 class InitialPage extends Component {

@@ -1,6 +1,10 @@
+/config/
 /src/
 /test/
 /node_modules/
+.babelrc
 .eslintrc
+.prettierc
+.travis.yml
 yarn.lock
 yarn-error.log
