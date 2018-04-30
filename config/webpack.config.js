@@ -43,7 +43,7 @@ module.exports = {
       failOnError: true,
       cwd: process.cwd(),
     }),
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
   ],
   module: {
     rules: [
