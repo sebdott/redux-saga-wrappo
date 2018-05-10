@@ -15,6 +15,7 @@ const {name: library} = require(paths.packageJson);
 
 module.exports = {
   mode: 'production',
+  node: false,
   entry: paths.appIndexJs,
   output: {
     filename: `${library}.min.js`,
@@ -51,7 +52,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         options: {
-          babelrc: true,
           cacheDirectory: true,
         },
         exclude: /(node_modules)/,

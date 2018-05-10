@@ -10,6 +10,7 @@
     "production": {
       "plugins": [
         ["@babel/plugin-transform-runtime", {"useESModules": true}],
+        "transform-react-remove-prop-types",
         "@babel/plugin-transform-react-inline-elements",
         "@babel/plugin-transform-react-constant-elements"
       ],

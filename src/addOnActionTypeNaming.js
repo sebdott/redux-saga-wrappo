@@ -30,13 +30,13 @@ export default function addOnActionTypeNaming(
     }
   }
   if (isReducer) {
-    if (global.ActionType) {
-      global.ActionType = { ...ActionTypes, ...global.ActionType };
+    if (window.ActionType) {
+      window.ActionType = { ...ActionTypes, ...window.ActionType };
     }
     else {
-      global.ActionType = ActionTypes;
+      window.ActionType = ActionTypes;
     }
-    return global.ActionType;
+    return window.ActionType;
   }
   return ActionTypes;
 }
