@@ -8,12 +8,13 @@ import InitialPage from './page/InitialPage';
 export default function AppCreator(
   component,
   root,
-  {rootReducer, rootSaga, persistReducerList},
+  {rootReducer, rootSaga, persistReducerList, enableLogger=false},
 ) {
   const {store, persistor} = configStore({
     rootReducer,
     rootSaga,
     persistReducerList,
+    enableLogger,
   });
 
   render(

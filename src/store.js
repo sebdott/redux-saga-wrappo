@@ -7,7 +7,7 @@ import {reducer as form} from 'redux-form';
 import innerReducer from './reducers';
 import history from './history';
 
-function getStoreInfo({rootReducer, persistReducerList}) {
+function getStoreInfo({rootReducer, persistReducerList, enableLogger}) {
   const sagaMiddleware = createSagaMiddleware();
 
   const reducerPersistWhiteList = ['appModel'];
@@ -30,13 +30,18 @@ function getStoreInfo({rootReducer, persistReducerList}) {
   );
 
   const middleware = [sagaMiddleware, routerMiddleware(history)];
+  if (enableLogger) {
+    const {createLogger} = require('redux-logger');
+
+    middleware.push(createLogger({collapsed: true}));
+  }
   const composeEnhancers =
     window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
   return {sagaMiddleware, reducer, middleware, composeEnhancers};
 }
 
-export default ({rootReducer, rootSaga, persistReducerList}) => {
+export default ({rootReducer, rootSaga, persistReducerList, enableLogger}) => {
   const initialState = {};
 
   const {
@@ -44,7 +49,7 @@ export default ({rootReducer, rootSaga, persistReducerList}) => {
     reducer,
     middleware,
     composeEnhancers,
-  } = getStoreInfo({rootReducer, rootSaga, persistReducerList});
+  } = getStoreInfo({rootReducer, rootSaga, persistReducerList, enableLogger});
   const createStoreWithMiddleware = composeEnhancers(
     applyMiddleware(...middleware),
   )(createStore);
