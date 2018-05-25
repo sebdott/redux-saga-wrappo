@@ -1,12 +1,12 @@
-import { all, takeLatest, fork } from 'redux-saga/effects';
+import {all, takeLatest, fork} from 'redux-saga/effects';
 import map from 'lodash-es/map';
 
-function* generateSagaInd({ sagas }) {
+function* generateSagaInd({sagas}) {
   return yield fork(function* root() {
     const sagasList = [];
     if (sagas) {
-      for (const [key, value] of Object.entries(sagas)) {
-        sagasList.push(yield takeLatest(key, value));
+      for (const [key] of Object.entries(sagas)) {
+        sagasList.push(yield takeLatest(key, sagas[key]));
       }
     }
     return yield all(sagasList);
