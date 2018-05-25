@@ -8,13 +8,13 @@ import InitialPage from './page/InitialPage';
 export default function AppCreator(
   component,
   root,
-  {rootReducer, rootSaga, persistReducerList, enableLogger=false},
+  {rootReducer, rootSaga, persistReducerList, middleware=[]},
 ) {
   const {store, persistor} = configStore({
     rootReducer,
     rootSaga,
     persistReducerList,
-    enableLogger,
+    middlewareAdd : middleware,
   });
 
   render(
